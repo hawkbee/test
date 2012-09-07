@@ -15,6 +15,8 @@ int main(int argc, char *argv[])
 
 	gtk_widget_set_size_request(window, 250, 100);
 
+	g_signal_connect_swapped(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
+
 	button = gtk_button_new_from_stock(GTK_STOCK_CLOSE);
 
 	g_signal_connect_swapped(G_OBJECT(button), "clicked", G_CALLBACK(gtk_widget_destroy), (gpointer)button);

@@ -22,6 +22,8 @@ int main(int argc, char *argv[])
 
 	gtk_container_set_border_width(GTK_CONTAINER(window), 10);
 
+	g_signal_connect_swapped(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
+
 	vbox = gtk_vbox_new(TRUE, 5);
 
 	toggle1 = gtk_toggle_button_new_with_mnemonic("_Deactivate the other one!");

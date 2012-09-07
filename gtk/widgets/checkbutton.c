@@ -20,6 +20,8 @@ int main(int argc, char *argv[])
 
 	gtk_container_set_border_width(GTK_CONTAINER(window), 10);
 
+	g_signal_connect_swapped(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
+
 	check1 = gtk_check_button_new_with_label("I am the main option:");
 	check2 = gtk_check_button_new_with_label("I rely on the other guy.");
 
